@@ -7,51 +7,16 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-
-    <Page.Resources>
-        <AcrylicBrush x:Name="Acrylic" 
-                      BackgroundSource="HostBackdrop"
-                      TintColor="Black"
-                      TintOpacity="0.6"/>
-        <SolidColorBrush x:Name="Glassy"
-                         Opacity="0"/>
-    </Page.Resources>
-
-    <StackPanel Orientation="Horizontal">
-
-        <ListBox Name="MainListMenu" 
-                 Background="{StaticResource Acrylic}" 
-                 SelectionMode="Single" 
-                 SelectionChanged="MainListMenu_SelectionChanged" 
-                 Width="240" Padding="0,20,0,0">
-            <ListBoxItem Name="Home">
-                <StackPanel Orientation="Horizontal">
-                    <TextBlock FontFamily="Segoe MDL2 Assets" Text="&#xF1AD;" FontSize="18" Margin="0,2,10,0"/>
-                    <TextBlock Text="开始" FontSize="16" />
-                </StackPanel>
-            </ListBoxItem>
-            <ListBoxItem Name="MPPCModuleSetting">
-                <StackPanel Orientation="Horizontal">
-                    <TextBlock FontFamily="Segoe MDL2 Assets" Text="&#xE7B3;" FontSize="18" Margin="0,2,10,0"/>
-                    <TextBlock Text="传感器配置" FontSize="16" />
-                </StackPanel>
-            </ListBoxItem>
-            <ListBoxItem Name="StepMotorSetting">
-                <StackPanel Orientation="Horizontal">
-                    <TextBlock FontFamily="Segoe MDL2 Assets" Text="&#xE713;" FontSize="18" Margin="0,2,10,0"/>
-                    <TextBlock Text="步进电机配置" FontSize="16" />
-                </StackPanel>
-            </ListBoxItem>
-            <ListBoxItem Name="About">
-                <StackPanel Orientation="Horizontal">
-                    <TextBlock FontFamily="Segoe MDL2 Assets" Text="&#xF22C;" FontSize="18" Margin="0,2,10,0"/>
-                    <TextBlock Text="关于" FontSize="16" />
-                </StackPanel>
-            </ListBoxItem>
-        </ListBox>
-
-        <Frame Name="MainFrame">
-            
-        </Frame>
-    </StackPanel>
+    <Grid>
+        <NavigationView x:Name="nvMenuView" IsSettingsVisible="False" ItemInvoked="NvMenu_ItemInvoked" IsBackButtonVisible="Collapsed">
+            <NavigationView.MenuItems>
+                <NavigationViewItem Icon="Home" Content="开始" Tag="HomePage" />
+                <NavigationViewItem Icon="Camera" Content="传感器设置" Tag="SensorPage" />
+                <NavigationViewItem Icon="Setting" Content="步进电机设置" Tag="MotorPage" />
+                <NavigationViewItem Icon="Account" Content="关于" Tag="AboutPage" />
+            </NavigationView.MenuItems>
+            <Frame x:Name="mainFrame"/>
+        </NavigationView>
+    </Grid>
+    
 </Page>

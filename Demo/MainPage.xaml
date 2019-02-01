@@ -1,0 +1,57 @@
+﻿<Page
+    x:Class="Demo.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Demo"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Page.Resources>
+        <AcrylicBrush x:Name="Acrylic" 
+                      BackgroundSource="HostBackdrop"
+                      TintColor="Black"
+                      TintOpacity="0.6"/>
+        <SolidColorBrush x:Name="Glassy"
+                         Opacity="0"/>
+    </Page.Resources>
+
+    <StackPanel Orientation="Horizontal">
+
+        <ListBox Name="MainListMenu" 
+                 Background="{StaticResource Acrylic}" 
+                 SelectionMode="Single" 
+                 SelectionChanged="MainListMenu_SelectionChanged" 
+                 Width="240" Padding="0,20,0,0">
+            <ListBoxItem Name="Home">
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock FontFamily="Segoe MDL2 Assets" Text="&#xF1AD;" FontSize="18" Margin="0,2,10,0"/>
+                    <TextBlock Text="开始" FontSize="16" />
+                </StackPanel>
+            </ListBoxItem>
+            <ListBoxItem Name="MPPCModuleSetting">
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock FontFamily="Segoe MDL2 Assets" Text="&#xE7B3;" FontSize="18" Margin="0,2,10,0"/>
+                    <TextBlock Text="传感器配置" FontSize="16" />
+                </StackPanel>
+            </ListBoxItem>
+            <ListBoxItem Name="StepMotorSetting">
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock FontFamily="Segoe MDL2 Assets" Text="&#xE713;" FontSize="18" Margin="0,2,10,0"/>
+                    <TextBlock Text="步进电机配置" FontSize="16" />
+                </StackPanel>
+            </ListBoxItem>
+            <ListBoxItem Name="About">
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock FontFamily="Segoe MDL2 Assets" Text="&#xF22C;" FontSize="18" Margin="0,2,10,0"/>
+                    <TextBlock Text="关于" FontSize="16" />
+                </StackPanel>
+            </ListBoxItem>
+        </ListBox>
+
+        <Frame Name="MainFrame">
+            
+        </Frame>
+    </StackPanel>
+</Page>

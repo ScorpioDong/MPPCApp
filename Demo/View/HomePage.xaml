@@ -1,0 +1,71 @@
+﻿<Page
+    x:Class="Demo.HomePage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Demo"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:controls="using:Microsoft.Toolkit.Uwp.UI.Controls"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    
+    <Grid Background="{StaticResource Acrtlic}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="100"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid Grid.Column="1" Grid.Row="1" 
+              Background="{ThemeResource SystemControlAcrylicWindowBrush}"
+              Padding="50">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="20"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="20"/>
+                <RowDefinition Height="60"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="auto"/>
+            </Grid.ColumnDefinitions>
+            <StackPanel Orientation="Horizontal" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2">
+                <TextBlock Text="X轴长度：" FontSize="26" Margin="10,0,0,0" VerticalAlignment="Center"/>
+                <TextBox Name="PicXLen" Margin="5,0,0,0" VerticalAlignment="Center"/>
+                <TextBlock Text="cm" FontSize="26" Margin="5,0,0,0" VerticalAlignment="Center"/>
+                <TextBlock Text="点数：" FontSize="26" Margin="30,0,0,0" VerticalAlignment="Center"/>
+                <TextBox Name="PicXCount" Margin="5,0,0,0" VerticalAlignment="Center"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2">
+                <TextBlock Text="Y轴长度：" FontSize="26" Margin="10,0,0,0" VerticalAlignment="Center"/>
+                <TextBox Name="PicYLen" Margin="5,0,0,0" VerticalAlignment="Center"/>
+                <TextBlock Text="cm" FontSize="26" Margin="5,0,0,0" VerticalAlignment="Center"/>
+                <TextBlock Text="点数：" FontSize="26" Margin="30,0,0,0" VerticalAlignment="Center"/>
+                <TextBox Name="PicYCount" Margin="5,0,0,0" VerticalAlignment="Center"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Grid.Row="4" Grid.Column="0">
+                <TextBlock Text="串口:" FontSize="26" Margin="10,0,0,0" VerticalAlignment="Center"/>
+                <ComboBox Name="Port" Width="150" Margin="10,0,0,0" VerticalAlignment="Center"/>
+                <Button Name="PortReflush" Style="{StaticResource ButtonRevealStyle}" Click="PortReflush_Click" Content="&#xEDAB;" FontFamily="Segoe MDL2 Assets" FontSize="20" Margin="10,0,0,0" VerticalAlignment="Center">
+                    <Button.Background>
+                        <SolidColorBrush Opacity="0"/>
+                    </Button.Background>
+                </Button>
+            </StackPanel>
+            <Button Name="toRun" Content="运行" Style="{StaticResource ButtonRevealStyle}" Click="ToRun_Click" FontSize="30" Grid.Row="4" Grid.Column="2" VerticalAlignment="Center">
+                <Button.Background>
+                    <SolidColorBrush Opacity="0"/>
+                </Button.Background>
+            </Button>
+        </Grid>
+        <controls:InAppNotification x:Name="PortFailed" Grid.Column="1" Grid.Row="3"/>
+    </Grid>
+
+</Page>

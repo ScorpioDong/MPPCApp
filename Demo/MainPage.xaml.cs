@@ -26,9 +26,10 @@ namespace Demo
         public MainPage()
         {
             this.InitializeComponent();
+            this.Loaded += onLoaded;
         }
 
-        private void OnLoaded(object sender, RoutedEventArgs e)
+        private void onLoaded(object sender, RoutedEventArgs e)
         {
             mainFrame.Navigate(typeof(HomePage));
         }
@@ -54,11 +55,6 @@ namespace Demo
                     break;
             }
 
-        }
-
-        private void toRunning()
-        {
-            Frame.Navigate(typeof(RunPage));
         }
 
     }

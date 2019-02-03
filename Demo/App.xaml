@@ -4,4 +4,24 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:Demo">
 
+    <Application.Resources>
+        <AcrylicBrush x:Key="Acrtlic"
+                      BackgroundSource="HostBackdrop"
+                      TintColor="Black"
+                      TintOpacity="0.8"/>
+        <Style TargetType="TextBox">
+            <Setter Property="Background">
+                <Setter.Value>
+                    <SolidColorBrush Opacity="0"/>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style TargetType="ComboBox">
+            <Setter Property="Background">
+                <Setter.Value>
+                    <SolidColorBrush Opacity="0"/>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Application.Resources>
 </Application>

@@ -8,7 +8,7 @@
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
     <Grid>
-        <NavigationView x:Name="nvMenuView" IsSettingsVisible="False" ItemInvoked="NvMenu_ItemInvoked" IsBackButtonVisible="Collapsed">
+        <NavigationView x:Name="nvMenuView" IsSettingsVisible="False" ItemInvoked="NvMenu_ItemInvoked" IsBackButtonVisible="Collapsed" Padding="0">
             <NavigationView.MenuItems>
                 <NavigationViewItem Icon="Home" Content="开始" Tag="HomePage" />
                 <NavigationViewItem Icon="Camera" Content="传感器设置" Tag="SensorPage" />

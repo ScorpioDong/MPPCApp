@@ -8,7 +8,25 @@
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
-    <Grid Background="{StaticResource Acrtlic}">
-        
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="100"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid Grid.Column="1" Grid.Row="1" 
+              Background="{ThemeResource SystemControlAcrylicWindowBrush}"
+              Padding="50">
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="GitHub:" VerticalAlignment="Center" FontSize="26" Margin="0,0,20,0"/>
+                <HyperlinkButton Content="https://github.com/haodong1101/MPPCApp" NavigateUri="https://github.com/haodong1101/MPPCApp" VerticalAlignment="Center" FontSize="24"/>
+            </StackPanel>
+        </Grid>
     </Grid>
 </Page>

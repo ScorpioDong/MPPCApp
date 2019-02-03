@@ -60,7 +60,8 @@ namespace Demo
             foreach (var id in dis)
                 Port.Items.Add(id.Name.ToString());
 
-            Port.SelectedIndex = 0;
+            if(Port.Items.Count != 0)
+                Port.SelectedIndex = 0;
 
         }
     }

@@ -9,7 +9,7 @@
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
     
-    <Grid Background="{StaticResource Acrtlic}">
+    <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
             <RowDefinition Height="auto"/>
@@ -53,7 +53,7 @@
             <StackPanel Orientation="Horizontal" Grid.Row="4" Grid.Column="0">
                 <TextBlock Text="串口:" FontSize="26" Margin="10,0,0,0" VerticalAlignment="Center"/>
                 <ComboBox Name="Port" Width="150" Margin="10,0,0,0" VerticalAlignment="Center"/>
-                <Button Name="PortReflush" Style="{StaticResource ButtonRevealStyle}" Click="PortReflush_Click" Content="&#xEDAB;" FontFamily="Segoe MDL2 Assets" FontSize="20" Margin="10,0,0,0" VerticalAlignment="Center">
+                <Button Name="PortReflush" Style="{StaticResource ButtonRevealStyle}" Click="PortReflush_Click" Content="&#xEDAB;" FontFamily="Segoe MDL2 Assets" FontSize="24" Margin="10,0,0,0" VerticalAlignment="Center">
                     <Button.Background>
                         <SolidColorBrush Opacity="0"/>
                     </Button.Background>

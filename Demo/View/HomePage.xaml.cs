@@ -42,7 +42,7 @@ namespace Demo
             }
             else
             {
-                PortFailed.Show("未找到串口，请选中或刷新后尝试！");
+                PortFailed.Show("未找到串口，请选中或刷新后尝试！", 2000);
             }
 
         }
@@ -54,6 +54,8 @@ namespace Demo
 
         private async void SerialReflush()
         {
+            Port.Items.Clear();
+
             string filter = SerialDevice.GetDeviceSelector();
             var dis = await DeviceInformation.FindAllAsync(filter);
 

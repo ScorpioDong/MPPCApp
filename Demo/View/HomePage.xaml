@@ -25,41 +25,46 @@
               Background="{ThemeResource SystemControlAcrylicWindowBrush}"
               Padding="50">
             <Grid.RowDefinitions>
-                <RowDefinition Height="40"/>
-                <RowDefinition Height="20"/>
-                <RowDefinition Height="40"/>
-                <RowDefinition Height="20"/>
-                <RowDefinition Height="60"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="auto"/>
                 <ColumnDefinition Width="auto"/>
                 <ColumnDefinition Width="auto"/>
             </Grid.ColumnDefinitions>
-            <StackPanel Orientation="Horizontal" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2">
-                <TextBlock Text="X轴长度：" FontSize="26" Margin="10,0,0,0" VerticalAlignment="Center"/>
-                <TextBox Name="PicXLen" Margin="5,0,0,0" VerticalAlignment="Center"/>
-                <TextBlock Text="cm" FontSize="26" Margin="5,0,0,0" VerticalAlignment="Center"/>
-                <TextBlock Text="点数：" FontSize="26" Margin="30,0,0,0" VerticalAlignment="Center"/>
-                <TextBox Name="PicXCount" Margin="5,0,0,0" VerticalAlignment="Center"/>
+            <StackPanel Orientation="Horizontal" Grid.Row="0" Grid.Column="0">
+                <StackPanel Orientation="Vertical" VerticalAlignment="Center">
+                    <TextBlock Text="X轴长度：" FontSize="26" Margin="5" VerticalAlignment="Center"/>
+                    <TextBlock Text="Y轴长度：" FontSize="26" Margin="5" VerticalAlignment="Center"/>
+                </StackPanel>
+                <StackPanel Orientation="Vertical" VerticalAlignment="Center">
+                    <TextBox Name="PicXLen" Margin="5" VerticalAlignment="Center"/>
+                    <TextBox Name="PicYLen" Margin="5" VerticalAlignment="Center"/>
+                </StackPanel>
+                <StackPanel Orientation="Vertical" VerticalAlignment="Center">
+                    <TextBlock Text="cm" FontSize="26" Margin="5" VerticalAlignment="Center"/>
+                    <TextBlock Text="cm" FontSize="26" Margin="5" VerticalAlignment="Center"/>
+                </StackPanel>
+                <StackPanel Orientation="Vertical" VerticalAlignment="Center">
+                    <TextBlock Text="点数：" FontSize="26" Margin="5" VerticalAlignment="Center"/>
+                    <TextBlock Text="点数：" FontSize="26" Margin="5" VerticalAlignment="Center"/>
+                </StackPanel>
+                <StackPanel Orientation="Vertical" VerticalAlignment="Center">
+                    <TextBox Name="PicXCount" Margin="5" VerticalAlignment="Center"/>
+                    <TextBox Name="PicYCount" Margin="5" VerticalAlignment="Center"/>
+                </StackPanel>
             </StackPanel>
-            <StackPanel Orientation="Horizontal" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2">
-                <TextBlock Text="Y轴长度：" FontSize="26" Margin="10,0,0,0" VerticalAlignment="Center"/>
-                <TextBox Name="PicYLen" Margin="5,0,0,0" VerticalAlignment="Center"/>
-                <TextBlock Text="cm" FontSize="26" Margin="5,0,0,0" VerticalAlignment="Center"/>
-                <TextBlock Text="点数：" FontSize="26" Margin="30,0,0,0" VerticalAlignment="Center"/>
-                <TextBox Name="PicYCount" Margin="5,0,0,0" VerticalAlignment="Center"/>
-            </StackPanel>
-            <StackPanel Orientation="Horizontal" Grid.Row="4" Grid.Column="0">
-                <TextBlock Text="串口:" FontSize="26" Margin="10,0,0,0" VerticalAlignment="Center"/>
-                <ComboBox Name="Port" Width="150" Margin="10,0,0,0" VerticalAlignment="Center"/>
-                <Button Name="PortReflush" Style="{StaticResource ButtonRevealStyle}" Click="PortReflush_Click" Content="&#xEDAB;" FontFamily="Segoe MDL2 Assets" FontSize="24" Margin="10,0,0,0" VerticalAlignment="Center">
+            <StackPanel Orientation="Horizontal" Grid.Row="1" Grid.Column="0">
+                <TextBlock Text="串口:" FontSize="26" Margin="5" VerticalAlignment="Center"/>
+                <ComboBox Name="Port" Width="150" Margin="5" VerticalAlignment="Center"/>
+                <Button Name="PortReflush" Style="{StaticResource ButtonRevealStyle}" Click="PortReflush_Click" Content="&#xEDAB;" FontFamily="Segoe MDL2 Assets" FontSize="24" Margin="10,5" VerticalAlignment="Center">
                     <Button.Background>
                         <SolidColorBrush Opacity="0"/>
                     </Button.Background>
                 </Button>
             </StackPanel>
-            <Button Name="toRun" Content="运行" Style="{StaticResource ButtonRevealStyle}" Click="ToRun_Click" FontSize="30" Grid.Row="4" Grid.Column="2" VerticalAlignment="Center">
+            <Button Name="toRun" Content="运行" Style="{StaticResource ButtonRevealStyle}" Click="ToRun_Click" FontSize="32" Grid.Row="1" Grid.Column="2" VerticalAlignment="Center">
                 <Button.Background>
                     <SolidColorBrush Opacity="0"/>
                 </Button.Background>

@@ -20,11 +20,16 @@ namespace Demo
     /// <summary>
     /// 可用于自身或导航至 Frame 内部的空白页。
     /// </summary>
-    public sealed partial class SensorPage : Page
+    public sealed partial class SettingPage : Page
     {
-        public SensorPage()
+        public SettingPage()
         {
             this.InitializeComponent();
+        }
+
+        private void Save_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

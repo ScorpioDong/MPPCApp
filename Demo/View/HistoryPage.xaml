@@ -1,0 +1,71 @@
+﻿<Page
+    x:Class="Demo.HistoryPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Demo"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:controls="using:Microsoft.Toolkit.Uwp.UI.Controls"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="6*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="100"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid Grid.Column="1" Grid.Row="1" 
+              Background="{ThemeResource SystemControlAcrylicWindowBrush}"
+              Padding="50">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="3*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <StackPanel Orientation="Vertical" Grid.Column="0">
+                <TextBlock Text="历史记录:" FontSize="26" Margin="0,20"/>
+                <ListView Name="HistoryList" SelectionMode="Single" Height="500" Width="300" FontSize="20">
+                    <ListViewItem>Hello1</ListViewItem>
+                    <ListViewItem>Hello2</ListViewItem>
+                    <ListViewItem>Hello3</ListViewItem>
+                </ListView>
+            </StackPanel>
+            <StackPanel Orientation="Vertical" Grid.Column="1">
+                <Button Name="Continue" Style="{StaticResource ButtonRevealStyle}" Click="Continue_Click" Content="继续" FontSize="24" Margin="10">
+                    <Button.Background>
+                        <SolidColorBrush Opacity="0"/>
+                    </Button.Background>
+                </Button>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Grid.Row="1" Grid.Column="0" VerticalAlignment="Bottom">
+                <TextBlock Text="串口:" FontSize="26" Margin="5" VerticalAlignment="Center"/>
+                <ComboBox Name="Port" Width="150" Margin="5" VerticalAlignment="Center"/>
+                <Button Name="PortReflush" Style="{StaticResource ButtonRevealStyle}" Click="PortReflush_Click" Content="&#xEDAB;" FontFamily="Segoe MDL2 Assets" FontSize="24" Margin="10,5" VerticalAlignment="Center">
+                    <Button.Background>
+                        <SolidColorBrush Opacity="0"/>
+                    </Button.Background>
+                </Button>
+            </StackPanel>
+            <Button Name="Delete" Style="{StaticResource ButtonRevealStyle}" Content="删除" FontSize="24" Margin="10" Grid.Column="1" VerticalAlignment="Bottom">
+                <Button.Background>
+                    <SolidColorBrush Opacity="0"/>
+                </Button.Background>
+                <Button.Flyout>
+                    <Flyout>
+                        <StackPanel>
+                            <TextBlock Style="{ThemeResource BaseTextBlockStyle}" Text="真的要删除吗？" Margin="0,0,0,12" />
+                            <Button Click="Delete_Click" Content="删除" HorizontalAlignment="Right"/>
+                        </StackPanel>
+                    </Flyout>
+                </Button.Flyout>
+            </Button>
+        </Grid>
+        <controls:InAppNotification x:Name="NotSeleted" Grid.Column="1" Grid.Row="3"/>
+    </Grid>
+</Page>

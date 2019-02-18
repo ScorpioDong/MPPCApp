@@ -11,8 +11,8 @@
         <NavigationView x:Name="nvMenuView" IsSettingsVisible="False" ItemInvoked="NvMenu_ItemInvoked" IsBackButtonVisible="Collapsed" Padding="0">
             <NavigationView.MenuItems>
                 <NavigationViewItem Icon="Home" Content="开始" Tag="HomePage" />
-                <NavigationViewItem Icon="Camera" Content="传感器设置" Tag="SensorPage" />
-                <NavigationViewItem Icon="Setting" Content="步进电机设置" Tag="MotorPage" />
+                <NavigationViewItem Icon="Refresh" Content="历史" Tag="SensorPage" />
+                <NavigationViewItem Icon="Setting" Content="设置" Tag="MotorPage" />
                 <NavigationViewItem Icon="Account" Content="关于" Tag="AboutPage" />
             </NavigationView.MenuItems>
             <Frame x:Name="mainFrame"/>

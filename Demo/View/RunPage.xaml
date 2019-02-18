@@ -5,10 +5,69 @@
     xmlns:local="using:Demo"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:controls="using:Microsoft.Toolkit.Uwp.UI.Controls"
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <Grid>
-
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="100"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid Grid.Column="1" Grid.Row="1" 
+              Background="{ThemeResource SystemControlAcrylicWindowBrush}"
+              Padding="50">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+            </Grid.RowDefinitions>
+            <StackPanel Orientation="Vertical" Grid.Row="0">
+                <StackPanel Orientation="Horizontal">
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Margin="20">
+                        <TextBlock Text="行" FontSize="24" Margin="10"/>
+                        <TextBlock Name="Row" Text="0" FontSize="26" Margin="10"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="20">
+                        <TextBlock Text="列" FontSize="24" Margin="10"/>
+                        <TextBlock Name="Column" Text="0" FontSize="26" Margin="10"/>
+                    </StackPanel>
+                </StackPanel>
+                <TextBlock Text="0"  FontSize="64" Margin="50" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Grid.Row="1" HorizontalAlignment="Center">
+                <Button Name="Run" Style="{StaticResource ButtonRevealStyle}" Click="Run_Click" Content="开始" FontSize="24" Margin="10">
+                    <Button.Background>
+                        <SolidColorBrush Opacity="0"/>
+                    </Button.Background>
+                </Button>
+                <Button Name="Data" Style="{StaticResource ButtonRevealStyle}" Click="Data_Click" Content="数据" FontSize="24" Margin="10">
+                    <Button.Background>
+                        <SolidColorBrush Opacity="0"/>
+                    </Button.Background>
+                </Button>
+                <Button Name="Stop" Style="{StaticResource ButtonRevealStyle}" Click="Stop_Click" Content="结束" FontSize="24" Margin="10">
+                    <Button.Background>
+                        <SolidColorBrush Opacity="0"/>
+                    </Button.Background>
+                </Button>
+            </StackPanel>
+        </Grid>
+        <controls:InAppNotification x:Name="Notification" Grid.Column="1" Grid.Row="3"/>
+        <controls:Loading x:Name="Loading" IsLoading="True" Grid.Column="1" Grid.Row="1">
+            <controls:Loading.Background>
+                <SolidColorBrush Color="Black" Opacity="0.7" />
+            </controls:Loading.Background>
+            <StackPanel Orientation="Vertical" Padding="10">
+                <ProgressRing IsActive="True" Margin="10"/>
+                <TextBlock Text="Please Wait..." FontSize="20" VerticalAlignment="Center" Margin="10"/>
+            </StackPanel>
+        </controls:Loading>
     </Grid>
 </Page>

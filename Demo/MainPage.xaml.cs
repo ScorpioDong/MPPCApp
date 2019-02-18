@@ -44,11 +44,11 @@ namespace Demo
                 case "开始":
                     mainFrame.Navigate(typeof(HomePage));
                     break;
-                case "传感器设置":
-                    mainFrame.Navigate(typeof(SensorPage));
+                case "历史":
+                    mainFrame.Navigate(typeof(HistoryPage));
                     break;
-                case "步进电机设置":
-                    mainFrame.Navigate(typeof(MotorPage));
+                case "设置":
+                    mainFrame.Navigate(typeof(SettingPage));
                     break;
                 case "关于":
                     mainFrame.Navigate(typeof(AboutPage));

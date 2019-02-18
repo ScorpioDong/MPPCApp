@@ -26,5 +26,27 @@ namespace Demo
         {
             this.InitializeComponent();
         }
+
+        private void Run_Click(object sender, RoutedEventArgs e)
+        {
+            if(Run.Content.ToString()=="开始" || Run.Content.ToString() == "继续")
+            {
+                Run.Content = "暂停";
+            }
+            else
+            {
+                Run.Content = "继续";
+            }
+        }
+
+        private void Stop_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Data_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

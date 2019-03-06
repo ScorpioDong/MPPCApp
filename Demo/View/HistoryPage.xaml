@@ -22,7 +22,7 @@
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
         <Grid Grid.Column="1" Grid.Row="1" 
-              Background="{ThemeResource SystemControlAcrylicWindowBrush}"
+              Background="#222222"
               Padding="50">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="3*"/>

@@ -1,30 +1,38 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using MPPCmodule;
+using Windows.Storage;
 using Windows.UI.Popups;
 
-namespace Demo.MPPCModule
+namespace Demo.Source
 {
-    public class Mppc
+    public static class MPPC
     {
-        public static IntPtr DeviceHandle = mppcum1a.INVALID_HANDLE_VALUE;
+        private static IntPtr DeviceHandle = mppcum1a.INVALID_HANDLE_VALUE;
 
-        public static IntPtr PipeHandle = mppcum1a.INVALID_HANDLE_VALUE;
+        private static IntPtr PipeHandle = mppcum1a.INVALID_HANDLE_VALUE;
 
-        public static uint ParamGateTime = 1;		// 1ms
+        private static readonly uint[] GateTime = new uint[7] { 1, 2, 5, 10, 20, 50, 100 };
 
-        public static ushort ParamDataSize = 100;	// 1ms * 100 = 100ms
+        private static uint ParamGateTime = 1;		// 1ms
+
+        private static ushort ParamDataSize = 100;	// 1ms * 100 = 100ms
 
         private const uint CYCLE_TIME = 100;
 
-        public static async void MPPC_Init(uint GateTime, ushort Threshold)
+        public static async void MPPC_Init()
         {
+            ApplicationDataContainer localSettings = Windows.Storage.ApplicationData.Current.LocalSettings;
             ushort result;
 
-            ParamGateTime = GateTime;
+            ParamGateTime = GateTime[Convert.ToUInt32(localSettings.Values["GateTime"].ToString())];
+            ushort Threshold = Convert.ToUInt16(localSettings.Values["Threshold"].ToString());
+            ParamDataSize = Convert.ToUInt16(CYCLE_TIME / ParamGateTime);
 
             DeviceHandle = mppcum1a.MPPC_OpenDevice();
             if(DeviceHandle == mppcum1a.INVALID_HANDLE_VALUE)
@@ -46,8 +54,7 @@ namespace Demo.MPPCModule
                 await new MessageDialog("Device Init Error！").ShowAsync();
                 return;
             }
-
-            ParamDataSize = Convert.ToUInt16(CYCLE_TIME / GateTime);
+            
             result = mppcum1a.MPPC_SetProperty(DeviceHandle, ParamGateTime, ParamDataSize);
             if(result != mppcum1a.MPPC_SUCCESS)
             {
@@ -84,7 +91,7 @@ namespace Demo.MPPCModule
                 result = mppcum1a.MPPC_GetPeltierStatus(DeviceHandle);
                 if (result == mppcum1a.MPPC_SUCCESS)
                     return;
-                await Task.Delay(1000);
+                Thread.Sleep(1000);
             }
         }
 
@@ -98,20 +105,22 @@ namespace Demo.MPPCModule
             while(true)
             {
                 result = mppcum1a.MPPC_GetCounterData(DeviceHandle, PipeHandle, ParamDataSize, dat);
-                if(result == mppcum1a.MPPC_NOT_UPDATED)
+                if (result == mppcum1a.MPPC_NOT_UPDATED)
                 {
-                    Task.Delay(20);
+                    Thread.Sleep(20);
                     continue;
                 }
-                else if(result == mppcum1a.MPPC_SUCCESS)
+                else if (result == mppcum1a.MPPC_SUCCESS)
                 {
                     for (i = 0; i < ParamDataSize; i++)
                     {
                         sumData += Convert.ToDouble(dat[i]);
                     }
-                    
+
                     return sumData / ParamDataSize / ParamGateTime;
                 }
+                else
+                    Debug.WriteLine("读取错误!");
             }
         }
     }

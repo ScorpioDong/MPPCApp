@@ -13,6 +13,7 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
+using Windows.Storage;
 
 // https://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x804 上介绍了“空白页”项模板
 
@@ -26,12 +27,35 @@ namespace Demo
         public MainPage()
         {
             this.InitializeComponent();
-            this.Loaded += onLoaded;
+            this.Loaded += OnLoaded;
         }
 
-        private void onLoaded(object sender, RoutedEventArgs e)
+        private void OnLoaded(object sender, RoutedEventArgs e)
         {
             mainFrame.Navigate(typeof(HomePage));
+            ParamsInit();
+        }
+
+        private void ParamsInit()
+        {
+            ApplicationDataContainer localSettings = Windows.Storage.ApplicationData.Current.LocalSettings;
+            if(null == localSettings.Values["isInit"])
+            {
+                localSettings.Values["isInit"] = "true";
+                localSettings.Values["PicXLen"] = "5";
+                localSettings.Values["PicYLen"] = "5";
+                localSettings.Values["PicXCount"] = "50";
+                localSettings.Values["PicYCount"] = "50";
+                localSettings.Values["XSpeed"] = "5000";
+                localSettings.Values["YSpeed"] = "5000";
+                localSettings.Values["GateTime"] = "1";
+                localSettings.Values["Threshold"] = "1";
+                localSettings.Values["isContinue"] = "false";
+                localSettings.Values["ExcelName"] = "";
+                localSettings.Values["RowN"] = "0";
+                localSettings.Values["ColN"] = "0";
+                localSettings.Values["PortName"] = "";
+            }
         }
 
         private void NvMenu_ItemInvoked(NavigationView sender, NavigationViewItemInvokedEventArgs args)

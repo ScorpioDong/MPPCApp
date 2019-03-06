@@ -7,6 +7,7 @@ using Windows.Devices.Enumeration;
 using Windows.Devices.SerialCommunication;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.Storage;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -30,6 +31,14 @@ namespace Demo
             SerialReflush();
         }
 
+        private void ParamsLoad()
+        {
+            ApplicationDataContainer localSettings = Windows.Storage.ApplicationData.Current.LocalSettings;
+            localSettings.Values["isContinue"] = "true";
+            localSettings.Values["ExcelName"] = HistoryList.SelectedItem.ToString();
+            localSettings.Values["PortName"] = Port.SelectedItem.ToString();
+        }
+
         private void Continue_Click(object sender, RoutedEventArgs e)
         {
             if (HistoryList.SelectedItem == null)
@@ -47,7 +56,8 @@ namespace Demo
             if (!(Window.Current.Content is Frame RootFrame))
                 return;
 
-            RootFrame.Navigate(typeof(RunPage));
+            ParamsLoad();
+            RootFrame.Navigate(typeof(Run));
         }
 
         private void Delete_Click(object sender, RoutedEventArgs e)

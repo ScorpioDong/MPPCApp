@@ -21,10 +21,10 @@
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
         <Grid Grid.Column="1" Grid.Row="1" 
-              Background="{ThemeResource SystemControlAcrylicWindowBrush}"
+              Background="#222222"
               Padding="50">
             <StackPanel Orientation="Horizontal">
-                <TextBlock Text="GitHub:" VerticalAlignment="Center" FontSize="26" Margin="0,0,20,0"/>
+                <TextBlock Text="源码:" VerticalAlignment="Center" FontSize="26" Margin="0,0,20,0"/>
                 <HyperlinkButton Content="https://github.com/haodong1101/MPPCApp" NavigateUri="https://github.com/haodong1101/MPPCApp" VerticalAlignment="Center" FontSize="24"/>
             </StackPanel>
         </Grid>

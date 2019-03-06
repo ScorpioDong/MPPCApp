@@ -20,22 +20,26 @@ namespace Demo
     /// <summary>
     /// 可用于自身或导航至 Frame 内部的空白页。
     /// </summary>
-    public sealed partial class RunPage : Page
+    public sealed partial class Run : Page
     {
-        public RunPage()
+        private readonly Source.Control Ctrl;
+        public Run()
         {
             this.InitializeComponent();
+            Ctrl = new Source.Control();
+            Ctrl.DeviceInit();
         }
 
-        private void Run_Click(object sender, RoutedEventArgs e)
+
+        private void Go_Click(object sender, RoutedEventArgs e)
         {
-            if(Run.Content.ToString()=="开始" || Run.Content.ToString() == "继续")
+            if(Go.Content.ToString()=="开始" || Go.Content.ToString() == "继续")
             {
-                Run.Content = "暂停";
+                Go.Content = "暂停";
             }
             else
             {
-                Run.Content = "继续";
+                Go.Content = "继续";
             }
         }
 
